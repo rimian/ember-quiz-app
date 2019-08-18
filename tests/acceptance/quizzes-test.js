@@ -10,4 +10,10 @@ module('Acceptance | quizzes', function(hooks) {
     assert.dom('[data-test-title]').hasText('Quizzes');
     assert.equal(currentURL(), '/quizzes');
   });
+
+  test('it lists the quizzes', async function(assert) {
+    await visit('/quizzes');
+    assert.dom('ul').exists();
+    assert.dom('[data-test-quizz="1"]').exists();
+  });
 });
