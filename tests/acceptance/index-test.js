@@ -7,7 +7,7 @@ module('Acceptance | index', function(hooks) {
 
   test('visiting /', async function(assert) {
     await visit('/');
-    assert.dom('[data-test-title]').hasText('Ember Quizz App');
+    assert.dom('[data-test-title]').hasText('Ember Quiz App');
     assert.equal(currentURL(), '/');
   });
 });

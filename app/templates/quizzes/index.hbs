@@ -1,0 +1,6 @@
+
+<ul>
+  {{#each model.quizzes as |quiz|}}
+    <li data-test-quiz={{quiz.id}}>{{#link-to "quizzes.show" quiz.id}}{{quiz.title}}{{/link-to}}</li>
+  {{/each}}
+</ul>

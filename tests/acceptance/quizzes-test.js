@@ -14,6 +14,7 @@ module('Acceptance | quizzes', function(hooks) {
   test('it lists the quizzes', async function(assert) {
     await visit('/quizzes');
     assert.dom('ul').exists();
-    assert.dom('[data-test-quizz="1"]').exists();
+    assert.dom('[data-test-quiz="1"]').hasText('Quiz 1');
+    assert.dom('[data-test-quiz="1"] a').exists();
   });
 });
