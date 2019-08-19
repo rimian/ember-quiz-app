@@ -1,11 +1,17 @@
 <h1 data-test-title>Quizzes</h1>
 
 <ul>
-  {{#each model.quizzes as |quiz|}}
+  {{#each completedQuizzes as |quiz|}}
     <li data-test-quiz={{quiz.id}}>
+      {{quiz.title}}
       {{#link-to "quizzes.show" quiz.id}}
-        {{quiz.title}}
+        Take this quiz
       {{/link-to}}
+    </li>
+  {{/each}}
+  {{#each unCompletedQuizzes as |quiz|}}
+    <li data-test-quiz={{quiz.id}}>
+      {{quiz.title}}
     </li>
   {{/each}}
 </ul>

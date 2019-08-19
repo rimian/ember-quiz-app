@@ -14,7 +14,14 @@ module('Acceptance | quizzes', function(hooks) {
   test('it lists the quizzes', async function(assert) {
     await visit('/quizzes');
     assert.dom('ul').exists();
-    assert.dom('[data-test-quiz="1"]').hasText('Quiz 1');
-    assert.dom('[data-test-quiz="1"] a').exists();
+    assert.dom('[data-test-quiz="1"]').containsText('Quiz 1');
+    assert.dom('[data-test-quiz="2"]').containsText('Quiz 2');
+  });
+
+  test('it only allows the user to take the next quiz', async function(assert) {
+    await visit('/quizzes');
+    assert.dom('[data-test-quiz="1"] a').hasText('Take this quiz');
+    assert.dom('[data-test-quiz="2"] a').doesNotExist();
+    assert.dom('[data-test-quiz="3"] a').doesNotExist();
   });
 });

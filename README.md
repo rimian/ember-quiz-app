@@ -1,9 +1,8 @@
 # Ember Quiz App
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a basic Ember app demonstrating a quiz with questions and answers.
 
-**Note: There is an error running this locally. See install instructions below**
+**Note: There may be an error running this locally due to an upstream package. See install instructions below**
 
 ## Prerequisites
 
@@ -28,7 +27,7 @@ You will need the following things properly installed on your computer.
 
 Note: `ember serve` is currently broken (2019-08-18). You may see an error `port already in use`
 
-To start this app locally run:
+If you see this error, start this app by running:
 
 `ember serve -p 0`
 

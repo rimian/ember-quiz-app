@@ -7,6 +7,6 @@ module('Unit | Model | user', function(hooks) {
   test('it has a default level', function(assert) {
     const store = this.owner.lookup('service:store');
     const model = store.createRecord('user', {});
-    assert.equal(model.level, 0);
+    assert.equal(model.level, 1);
   });
 });
