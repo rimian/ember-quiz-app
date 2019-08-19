@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { visit, currentURL } from '@ember/test-helpers';
+import { click, currentURL, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 
 module('Acceptance | quizzes', function(hooks) {
@@ -23,5 +23,11 @@ module('Acceptance | quizzes', function(hooks) {
     assert.dom('[data-test-quiz="1"] a').hasText('Take this quiz');
     assert.dom('[data-test-quiz="2"] a').doesNotExist();
     assert.dom('[data-test-quiz="3"] a').doesNotExist();
+  });
+
+  test('it links to the quiz', async function(assert) {
+    await visit('/quizzes');
+    await click('[data-test-quiz="1"] a');
+    assert.equal(currentURL(), '/quizzes/1');
   });
 });

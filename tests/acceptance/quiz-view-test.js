@@ -16,7 +16,7 @@ module('Acceptance | quiz view', function(hooks) {
     await visit('/quizzes/1');
 
     assert.dom('[data-test-question="1"]').exists();
-    // assert.dom('[data-test-question="2"]').exists();
-    // assert.dom('[data-test-question="3"]').exists();
+    assert.dom('[data-test-question="2"]').exists();
+    assert.dom('[data-test-question="3"]').exists();
   });
 });
