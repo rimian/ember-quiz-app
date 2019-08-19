@@ -9,7 +9,7 @@ export default Controller.extend({
     return this.currentUser.user.level;
   }),
 
-  completedQuizzes: computed('model.quizzes', function() {
+  availableQuizzes: computed('model.quizzes', function() {
     return this.model.quizzes.slice(0, this.userLevel);
   }),
 

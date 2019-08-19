@@ -1,7 +1,7 @@
 <h1 data-test-title>Quizzes</h1>
 
 <ul>
-  {{#each completedQuizzes as |quiz|}}
+  {{#each availableQuizzes as |quiz|}}
     <li data-test-quiz={{quiz.id}}>
       {{quiz.title}}
       {{#link-to "quizzes.show" quiz.id}}
