@@ -3,5 +3,5 @@ const { Model } = DS;
 import attr from 'ember-data/attr';
 
 export default Model.extend({
-  title: attr('string'),
+  level: attr('number', { defaultValue: 0 }),
 });
