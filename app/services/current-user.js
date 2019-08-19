@@ -10,6 +10,6 @@ export default Service.extend({
   }),
 
   completeLevel() {
-    this.incrementProperty('level');
+    this.user.incrementProperty('level');
   },
 });

@@ -1,8 +1,11 @@
 import Route from '@ember/routing/route';
+import { assign } from '@ember/polyfills';
 
 export default Route.extend({
   model(params) {
-    const { quizzes } = this.modelFor('quizzes');
+    // Without this viewing the quiz directly breaks. Remove me when server runs
+    const { quizzes } = assign(this.modelFor('quizzes'), this.modelFor('quizzes.index'));
+
     const quiz = quizzes.filter((q) => q.id == params.quiz_id).firstObject;
     const { questions } = this.questionRecords();
 
