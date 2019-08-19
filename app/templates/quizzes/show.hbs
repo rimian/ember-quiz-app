@@ -1,3 +1,9 @@
 <h1 data-test-title>{{model.quiz.title}}</h1>
 
+<ol>
+  {{#each questions as |question| }}
+    <li data-test-question={{question.id}}>{{question.question}}</li>
+  {{/each}}
+</ol>
+
 {{outlet}}

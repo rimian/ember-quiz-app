@@ -2,6 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model() {
+    // TODO: save these as records
     return {
       "quizzes": [
         {
