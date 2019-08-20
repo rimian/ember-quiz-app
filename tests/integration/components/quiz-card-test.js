@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | quiz-card', function(hooks) {
@@ -20,6 +20,6 @@ module('Integration | Component | quiz-card', function(hooks) {
     this.set('myAction', () => assert.ok(true));
 
     await render(hbs`<QuizCard @onComplete={{action myAction}}></QuizCard>`);
-    assert.dom('button').exists();
+    await click('button');
   });
 });
