@@ -5,4 +5,5 @@ import attr from 'ember-data/attr';
 export default Model.extend({
   question: attr('string'),
   answers: attr(),
+  correct_answer: attr('number'),
 });

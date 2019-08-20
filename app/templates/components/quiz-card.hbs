@@ -4,8 +4,17 @@
     <li data-test-question={{question.id}}>
       <p data-test-question-question>{{question.question}}</p>
       <ol>
-        {{#each question.answers as |answer|}}
-          <li data-test-question-answer>{{answer}}</li>
+        {{#each question.answers as |answer i|}}
+          <li data-test-question-answer>
+            <input
+              type="radio"
+              name={{concat "question-" question.id}}
+              value={{i}}
+              onclick={{action "setAnswer" question i }}
+              data-test-input-answer={{i}}
+            >
+            <label>{{answer}}</label>
+          </li>
         {{/each}}
       </ol>
     </li>
