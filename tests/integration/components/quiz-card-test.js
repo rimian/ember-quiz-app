@@ -6,12 +6,12 @@ import hbs from 'htmlbars-inline-precompile';
 module('Integration | Component | quiz-card', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders a button', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it renders questions', async function(assert) {
+    this.set('questions', [{ id: 1, question: 'What is the velocity of a sparrow?' }]);
 
-    await render(hbs`<QuizCard></QuizCard>`);
-    assert.dom('button').exists();
+    await render(hbs`<QuizCard @questions={{questions}}></QuizCard>`);
+    assert.dom('[data-test-question]').exists({ count: 1 });
+    assert.dom('[data-test-question-question]').hasText('What is the velocity of a sparrow?');
   });
 
   test('it calls the submit action', async function(assert) {
