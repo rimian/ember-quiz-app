@@ -4,12 +4,12 @@
   Back
 {{/link-to}}
 
-<ol>
-  {{#each model.questions as |question| }}
-    <li data-test-question={{question.id}}>{{question.question}}</li>
-  {{/each}}
-</ol>
-
-<button {{action "completeQuiz"}}>Complete the Quiz</button>
+<QuizCard @onComplete={{action "completeQuiz"}}>
+  <ol>
+    {{#each model.questions as |question| }}
+      <li data-test-question={{question.id}}>{{question.question}}</li>
+    {{/each}}
+  </ol>
+</QuizCard>
 
 {{outlet}}
