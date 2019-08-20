@@ -8,11 +8,4 @@ module('Unit | Service | current-user', function(hooks) {
     const service = this.owner.lookup('service:current-user');
     assert.ok(service.user);
   });
-
-  test('it completes a level', function(assert) {
-    const service = this.owner.lookup('service:current-user');
-    const currentLevel = service.user.level;
-    service.completeLevel();
-    assert.equal(service.user.level, currentLevel + 1);
-  });
 });

@@ -1,11 +1,15 @@
 import { module, test } from 'qunit';
 import { click, currentURL, visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
+import { setupMirage } from 'ember-cli-mirage/test-support';
 
 module('Acceptance | quiz view', function(hooks) {
   setupApplicationTest(hooks);
+  setupMirage(hooks);
 
   test('visiting /quizzes/:id', async function(assert) {
+    this.server.create('quiz');
+
     await visit('/quizzes/1');
 
     assert.dom('[data-test-title]').hasText('Quiz 1');
@@ -13,6 +17,9 @@ module('Acceptance | quiz view', function(hooks) {
   });
 
   test('the quiz has the questions in it', async function(assert) {
+    this.server.create('quiz');
+    this.server.createList('question', 3);
+
     await visit('/quizzes/1');
 
     assert.dom('[data-test-question="1"]').exists();
@@ -21,9 +28,13 @@ module('Acceptance | quiz view', function(hooks) {
   });
 
   test('the quiz completes', async function(assert) {
+    this.server.createList('quiz', 2);
+    this.server.createList('question', 2);
+
     await visit('/quizzes/1');
     await click('button');
     assert.equal(currentURL(), '/quizzes');
+
     assert.dom('[data-test-quiz="2"] a').hasText('Take this quiz');
   });
 });

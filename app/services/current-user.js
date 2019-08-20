@@ -11,5 +11,6 @@ export default Service.extend({
 
   completeLevel() {
     this.user.incrementProperty('level');
+    return this.user.save();
   },
 });

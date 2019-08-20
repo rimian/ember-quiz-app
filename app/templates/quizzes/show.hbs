@@ -5,7 +5,7 @@
 {{/link-to}}
 
 <ol>
-  {{#each questions as |question| }}
+  {{#each model.questions as |question| }}
     <li data-test-question={{question.id}}>{{question.question}}</li>
   {{/each}}
 </ol>
