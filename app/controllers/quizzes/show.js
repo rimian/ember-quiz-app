@@ -6,8 +6,9 @@ export default Controller.extend({
 
   actions: {
     completeQuiz() {
-      this.currentUser.completeLevel();
-      this.transitionToRoute('quizzes');
+      this.currentUser.completeLevel().then(() => {
+        this.transitionToRoute('quizzes');
+      });
     },
   },
 });

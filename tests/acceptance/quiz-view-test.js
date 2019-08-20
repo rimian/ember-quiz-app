@@ -17,14 +17,14 @@ module('Acceptance | quiz view', function(hooks) {
   });
 
   test('the quiz has the questions in it', async function(assert) {
-    this.server.create('quiz');
-    this.server.createList('question', 3);
+    this.server.create('quiz', { question_ids: [3, 4] });
+    this.server.createList('question', 5);
 
     await visit('/quizzes/1');
 
-    assert.dom('[data-test-question="1"]').exists();
-    assert.dom('[data-test-question="2"]').exists();
     assert.dom('[data-test-question="3"]').exists();
+    assert.dom('[data-test-question="4"]').exists();
+    assert.dom('[data-test-question]').exists({ count: 2 });
   });
 
   test('the quiz completes', async function(assert) {
