@@ -2,6 +2,10 @@
 
 This is a basic Ember app demonstrating a quiz with questions and answers.
 
+The form button will allow the user to transition to the next test when all the answers are correct.
+
+There's no CSS or UX alerts or flash messages at this stage. This is only to show that the quiz actually works.
+
 **Note: There may be an error running this locally due to an upstream package. See install instructions below**
 
 ## Prerequisites
